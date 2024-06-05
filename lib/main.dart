@@ -10,7 +10,25 @@ class ContactListApp extends StatelessWidget {
     return MaterialApp(
       title: 'Contact List',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+       appBarTheme: AppBarTheme(
+
+         centerTitle: true,
+
+         backgroundColor: Colors.blueGrey,
+         titleTextStyle: TextStyle(
+           fontWeight: FontWeight.bold,
+
+         ),
+
+       ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.white,
+            backgroundColor: Colors.blueGrey,
+              fixedSize: Size.fromWidth(double.maxFinite),
+              padding: EdgeInsets.symmetric(vertical: 12)
+          )
+        )
       ),
       home: ContactListScreen(),
     );
