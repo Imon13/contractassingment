@@ -10,25 +10,22 @@ class ContactListApp extends StatelessWidget {
     return MaterialApp(
       title: 'Contact List',
       theme: ThemeData(
-       appBarTheme: AppBarTheme(
-
-         centerTitle: true,
-
-         backgroundColor: Colors.blueGrey,
-         titleTextStyle: TextStyle(
-           fontWeight: FontWeight.bold,
-
-         ),
-
-       ),
+        appBarTheme: AppBarTheme(
+          foregroundColor: Colors.white,
+          centerTitle: true,
+          backgroundColor: Colors.blueGrey,
+          titleTextStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.white,
+            foregroundColor: Colors.white,
             backgroundColor: Colors.blueGrey,
-              fixedSize: Size.fromWidth(double.maxFinite),
-              padding: EdgeInsets.symmetric(vertical: 12)
-          )
-        )
+            fixedSize: Size.fromWidth(double.maxFinite),
+            padding: EdgeInsets.symmetric(vertical: 12),
+          ),
+        ),
       ),
       home: ContactListScreen(),
     );
@@ -81,14 +78,14 @@ class _ContactListScreenState extends State<ContactListScreen> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'),
+              child: Icon(Icons.no_sim_outlined), // Cancel button
             ),
             TextButton(
               onPressed: () {
                 _deleteContact(index);
                 Navigator.of(context).pop();
               },
-              child: Text('Delete'),
+              child: Icon(Icons.delete), // Delete button
             ),
           ],
         );
@@ -114,6 +111,7 @@ class _ContactListScreenState extends State<ContactListScreen> {
                 ),
                 SizedBox(height: 8.0),
                 TextField(
+                  maxLength: 11,
                   controller: _numberController,
                   decoration: InputDecoration(labelText: 'Number'),
                 ),
@@ -148,7 +146,6 @@ class _ContactListScreenState extends State<ContactListScreen> {
                       trailing: IconButton(
                         icon: Icon(Icons.phone),
                         onPressed: () {
-                          // Handle phone icon press, if needed
                         },
                       ),
                     ),
